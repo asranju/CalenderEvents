@@ -18,7 +18,6 @@ class Calender extends State<CalenderScreen> {
   List<Events> eventsList = [];
   List<Events> alleventsList = [];
   String value = "a",
-      _titleText = "",
       date = '',
       _selectedtype = 'Event',
       repeat = 'Do not repeat',
@@ -300,9 +299,7 @@ class Calender extends State<CalenderScreen> {
 
   void calendarTapped(CalendarTapDetails details) {
     if (details.targetElement == CalendarElement.header) {
-      _titleText = 'Header';
     } else if (details.targetElement == CalendarElement.viewHeader) {
-      _titleText = 'View Header';
     } else if (details.targetElement == CalendarElement.calendarCell) {
       date = new DateFormat('yyyy-MM-dd').format(details.date!).toString();
       enddate = new DateFormat('yyyy-MM-dd').format(details.date!).toString();
@@ -317,8 +314,6 @@ class Calender extends State<CalenderScreen> {
               alleventsList = value;
             })
           });
-      print(date);
-      _titleText = 'Calendar cell';
     }
   }
 
